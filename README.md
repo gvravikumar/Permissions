@@ -21,4 +21,10 @@ This guide provides insights into the behavior of permission requests on differe
 **Deny (twice):**
   - No dialog will be shown (activates "Don't ask again" behavior).
 **Behavior:**
- 
+  - After denying a particular permission request twice, the system interprets it as the user not wanting to grant that permission.
+  - Subsequent permission requests won't show the system dialog.
+  - `shouldShowRequestPermissionRationale` method will return false for that permission.
+  
+## Handling Denials on Android 11 and Above
+
+If the user denies the permission twice without granting it, the app should handle this situation gracefully. Consider guiding the user to the app settings where they can manually enable the permission.
